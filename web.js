@@ -6,7 +6,7 @@ var app = express.createServer(express.logger());
 app.get('/', function(request, response) {
 	//response.send('Hello World 123456!!!!11');
 	buf = new Buffer(256);
-	len = buf.write('\u00bd + \u00bc = \u00be', 0);
+	len = buf.write(fs.readFileSync('./index.html'), 0);
 	response.send(len + " bytes: " + buf.toString('utf8', 0, len));
   //response.send(buffer.toString(fs.readFileSync('./index.html')));
 });
